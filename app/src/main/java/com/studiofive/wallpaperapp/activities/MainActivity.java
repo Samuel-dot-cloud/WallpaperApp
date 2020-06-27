@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.setDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        PhotosFragments photosFragment = new PhotosFragments();
+        Functions.changeMainFragment(MainActivity.this, photosFragment);
     }
 
     @Override
