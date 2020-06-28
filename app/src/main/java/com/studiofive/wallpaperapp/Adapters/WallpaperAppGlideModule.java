@@ -1,4 +1,4 @@
-package com.studiofive.wallpaperapp.utils;
+package com.studiofive.wallpaperapp.Adapters;
 
 import com.bumptech.glide.annotation.GlideModule;
 import com.bumptech.glide.module.AppGlideModule;
