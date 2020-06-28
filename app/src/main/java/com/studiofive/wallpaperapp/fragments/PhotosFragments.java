@@ -18,6 +18,7 @@ import com.studiofive.wallpaperapp.Models.Photo;
 import com.studiofive.wallpaperapp.R;
 import com.studiofive.wallpaperapp.Webservices.ApiInterface;
 import com.studiofive.wallpaperapp.Webservices.ServiceGenerator;
+import com.studiofive.wallpaperapp.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +62,7 @@ public class PhotosFragments extends Fragment {
 
     private void getPhotos(){
         ApiInterface apiInterface = ServiceGenerator.createService(ApiInterface.class);
-        Call<List<Photo>> call = apiInterface.getPhotos();
+        Call<List<Photo>> call = apiInterface.getPhotos(Constants.ACCESS_KEY);
         call.enqueue(new Callback<List<Photo>>() {
             @Override
             public void onResponse(Call<List<Photo>> call, Response<List<Photo>> response) {

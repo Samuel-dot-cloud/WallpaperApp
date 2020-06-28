@@ -49,12 +49,12 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Photo photo = photos.get(position);
         holder.userName.setText(photo.getUser().getUsername());
-        Glide.with(context).load(photo.getUrl().getRegular())
+        GlideApp.with(context).load(photo.getUrl().getRegular())
                 .placeholder(R.drawable.placeholder)
                 .override(600, 600)
                 .into(holder.photo);
 
-        Glide.with(context).load(photo.getUser().getProfileImage().getSmall())
+        GlideApp.with(context).load(photo.getUser().getProfileImage().getSmall())
                 .into(holder.userAvatar);
 
     }
