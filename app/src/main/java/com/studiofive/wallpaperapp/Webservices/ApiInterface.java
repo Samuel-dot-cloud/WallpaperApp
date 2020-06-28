@@ -1,5 +1,6 @@
 package com.studiofive.wallpaperapp.Webservices;
 
+import com.studiofive.wallpaperapp.Models.Collection;
 import com.studiofive.wallpaperapp.Models.Photo;
 
 import java.util.List;
@@ -12,6 +13,11 @@ public interface ApiInterface {
 
     @GET("photos")
     Call<List<Photo>> getPhotos(
+            @Query("client_id") String key
+    );
+
+    @GET("collections/featured")
+    Call<List<Collection>> getCollections(
             @Query("client_id") String key
     );
 }
