@@ -1,9 +1,11 @@
 package com.studiofive.wallpaperapp.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.annotation.BinderThread;
@@ -14,12 +16,14 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.module.AppGlideModule;
 import com.studiofive.wallpaperapp.Models.Photo;
 import com.studiofive.wallpaperapp.R;
+import com.studiofive.wallpaperapp.activities.FullScreenPhotoActivity;
 import com.studiofive.wallpaperapp.utils.SquareImage;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder> {
@@ -66,10 +70,21 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
         TextView userName;
         @BindView(R.id.item_photo_photo)
         SquareImage photo;
+        @BindView(R.id.item_photo_layout)
+        FrameLayout frameLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+        }
+
+        @OnClick(R.id.item_photo_layout)
+        public void setFrameLayout(){
+            int position = getAdapterPosition();
+            String photoId = photos.get(position).getId();
+            Intent intent = new Intent(context, FullScreenPhotoActivity.class);
+            intent.putExtra("photoId", photoId);
+            context.startActivity(intent);
         }
     }
 
