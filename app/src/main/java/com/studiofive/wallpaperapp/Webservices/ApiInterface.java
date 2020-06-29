@@ -33,4 +33,9 @@ public interface ApiInterface {
             @Path("id") int id,
             @Query("client_id") String key
     );
+    @GET("photos/{id}")
+    Call<Photo> getPhoto(
+            @Path("id") String id,
+            @Query("client_id") String key
+    );
 }

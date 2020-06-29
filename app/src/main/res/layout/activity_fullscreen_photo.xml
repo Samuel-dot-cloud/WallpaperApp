@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             app:fab_size="mini"
             android:src="@drawable/ic_favourite"
-            app:fab_colorNormal="#FFEB49"
+            app:fab_colorNormal="@color/colorPrimaryDark"
             app:fab_label="Favourite"/>
 
         <com.github.clans.fab.FloatingActionButton
@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:fab_size="mini"
-            android:src="@drawable/ic_favourite"
+            android:src="@drawable/ic_wallpaper"
             app:fab_colorNormal="#FFEB49"
             app:fab_label="Wallpaper"/>
 
