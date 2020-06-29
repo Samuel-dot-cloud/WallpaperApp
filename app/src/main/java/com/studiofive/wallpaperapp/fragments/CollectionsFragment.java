@@ -18,12 +18,14 @@ import com.studiofive.wallpaperapp.R;
 import com.studiofive.wallpaperapp.Webservices.ApiInterface;
 import com.studiofive.wallpaperapp.Webservices.ServiceGenerator;
 import com.studiofive.wallpaperapp.utils.Constants;
+import com.studiofive.wallpaperapp.utils.Functions;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnItemClick;
 import butterknife.Unbinder;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -52,6 +54,15 @@ public class CollectionsFragment extends Fragment {
         return view;
     }
 
+    @OnItemClick(R.id.fragment_collections_gridView)
+    public void setGridView(int position){
+        Collection collection = collections.get(position);
+        Bundle bundle = new Bundle();
+        bundle.putInt("collectionId", collection.getId());
+        CollectionFragment collectionFragment = new CollectionFragment();
+        collectionFragment.setArguments(bundle);
+        Functions.changeMainFragmentWithBack(getActivity(), collectionFragment);
+    }
     private void getCollections(){
         ApiInterface apiInterface = ServiceGenerator.createService(ApiInterface.class);
         Call<List<Collection>> call = apiInterface.getCollections(Constants.ACCESS_KEY);
