@@ -2,7 +2,9 @@ package com.studiofive.wallpaperapp.Models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class PhotoUrl {
+import io.realm.RealmObject;
+
+public class PhotoUrl extends RealmObject {
     @SerializedName("full")
     private String full;
     @SerializedName("regular")
