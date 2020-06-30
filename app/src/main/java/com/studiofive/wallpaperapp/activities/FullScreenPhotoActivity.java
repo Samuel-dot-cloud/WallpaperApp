@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,6 +22,7 @@ import com.studiofive.wallpaperapp.R;
 import com.studiofive.wallpaperapp.Webservices.ApiInterface;
 import com.studiofive.wallpaperapp.Webservices.ServiceGenerator;
 import com.studiofive.wallpaperapp.utils.Constants;
+import com.studiofive.wallpaperapp.utils.Functions;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -44,6 +46,7 @@ public class FullScreenPhotoActivity extends AppCompatActivity {
     FloatingActionButton fabWallpaper;
     @BindView(R.id.activity_fullscreen_photo_username)
     TextView username;
+    private Bitmap photoBitmap;
 
     private Unbinder unbinder;
 
@@ -92,6 +95,7 @@ public class FullScreenPhotoActivity extends AppCompatActivity {
                         @Override
                         public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
                             fullScreenPhoto.setImageBitmap(resource);
+                            photoBitmap = resource;
                         }
                     });
         } catch (Exception e){
@@ -105,6 +109,13 @@ public class FullScreenPhotoActivity extends AppCompatActivity {
     }
     @OnClick(R.id.activity_fullscreen_photo_fab_wallpaper)
     public void setFabWallpaper(){
+        if (photoBitmap != null){
+            if (Functions.setWallpaper(FullScreenPhotoActivity.this, photoBitmap)){
+                Toast.makeText(FullScreenPhotoActivity.this, "Set Wallpaper successfully", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(FullScreenPhotoActivity.this, "Set Wallpaper failed", Toast.LENGTH_SHORT).show();
+            }
+        }
         fabMenu.close(true);
     }
 
