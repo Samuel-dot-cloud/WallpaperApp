@@ -7,7 +7,7 @@ My name is Samuel and i am currently a learning software programmer at Moringa S
 
 ## DESCRIPTION OF PROJECT.
 The project is a Java Android-platform based wallpaper application whose photos are made available by use of the Unsplash API. With this application, one is able to set wallpapers from the available pictures, and even add the more appealing ones to a favourites section, which is even viewable when the device is offline.
-For more information on the individual photos, names and images of the authors have also been displayed.:medal_military::medal_military::trophy:
+For more information on the individual photos, names and images of the authors have also been displayed. One is also able to view the featured collections from Unsplash.:medal_military::medal_military::trophy:
  <p float="centre">
    <img src="pics/photos.jpg" width="100" />
    <img src="pics/collections.jpg" width="100" /> 
