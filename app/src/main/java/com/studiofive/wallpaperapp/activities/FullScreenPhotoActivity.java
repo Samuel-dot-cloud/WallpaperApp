@@ -139,7 +139,7 @@ public class FullScreenPhotoActivity extends AppCompatActivity {
             if (Functions.setWallpaper(FullScreenPhotoActivity.this, photoBitmap)){
                 Toast.makeText(FullScreenPhotoActivity.this, "Set Wallpaper successfully", Toast.LENGTH_SHORT).show();
             }else{
-                Toast.makeText(FullScreenPhotoActivity.this, "Set Wallpaper failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(FullScreenPhotoActivity.this, "Setting Wallpaper failed", Toast.LENGTH_SHORT).show();
             }
         }
         fabMenu.close(true);
